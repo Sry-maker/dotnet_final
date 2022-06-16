@@ -1,0 +1,618 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApplication2</name>
+    </assembly>
+    <members>
+        <member name="T:WebApplication2.Controllers.Customer">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Customer.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Customer.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Customer.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Customer.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Customer.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Customer.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Customer.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Customer.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Customer.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.Dining_table">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Dining_table.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Dining_table.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Dining_table.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dining_table.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dining_table.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dining_table.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dining_table.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dining_table.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dining_table.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dining_table.setTableState(WebApplication2.Controllers.dining_table)">
+             <summary>
+             修改餐桌使用状态
+             </summary>
+             <returns></returns>
+            <remarks>using_state传改变后的新状态 返回值：0-修改失败 1-修改成功</remarks>
+        </member>
+        <member name="T:WebApplication2.Controllers.customer">
+            <summary>
+            顾客用户
+            </summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.dish_order">
+            <summary>
+            订单
+            </summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.Dish">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Dish.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Dish.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Dish.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish.getAllDish">
+            <summary>
+            返回菜单
+            </summary>
+            <returns></returns>
+            <remarks>异常返回null</remarks>
+        </member>
+        <member name="T:WebApplication2.Controllers.Dish_order">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Dish_order.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Dish_order.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Dish_order.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.saveOrder(WebApplication2.Controllers.dish_order)">
+            <summary>
+            暂存订单
+            </summary>
+            <param name="d1"></param>
+            <remarks>
+            异常返回：null
+            </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.getTemporaryOrder(System.String)">
+            <summary>
+            获取暂存订单
+            </summary>
+            <param name="customer_id"></param>
+            <returns></returns>
+            <remarks>
+            异常返回：null
+            </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Dish_order.submitOrder(WebApplication2.Controllers.dish_order)">
+            <summary>
+            提交订单
+            </summary>
+            <returns></returns>
+            <remarks>
+            需要{ customer_id, [{dish_id, dish_num}] } 0-提交失败 1-提交成功
+            </remarks>
+        </member>
+        <member name="T:WebApplication2.Controllers.Employee">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Employee.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Employee.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Employee.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Employee.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Employee.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Employee.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Employee.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Employee.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Employee.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.Evaluation">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Evaluation.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Evaluation.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Evaluation.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Evaluation.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Evaluation.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Evaluation.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Evaluation.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Evaluation.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Evaluation.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.Ingredient">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Ingredient.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Ingredient.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Ingredient.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.Ingredient.ingredient">
+            <summary>
+            食材,增加了花费
+            </summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.addIngredient(WebApplication2.Controllers.Ingredient.ingredient)">
+            <summary>
+            添加食材
+            </summary>       
+            <returns></returns>
+            <remarks>
+            1；当日已添加该食材，完成覆盖；
+            0：没有该食材；-1：添加失败
+            所需输入：食材名、购买日期、数量、花费、保质期
+            </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.isExistenceIngredient(System.String)">
+            <summary>
+            判断食材是否存在并返回
+            </summary>
+            <param name="name">食材名称</param>
+            <returns></returns>
+            <remarks>
+            存在返回所有批次的食材，否则返回cost=0，连接错误返回null；
+            输入为食材名
+            </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.deleteIngredient(WebApplication2.Controllers.Ingredient.ingredient)">
+            <summary>
+            删除食材（不删除流水）
+            </summary>
+            <remarks>
+            buy_date为null删除所有同名食材，否则删除指定批次食材；
+            1：删除成功；0：不存在食材，删除失败；-1：连接失败
+            </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.deleteIngredientTotally(WebApplication2.Controllers.Ingredient.ingredient)">
+            <summary>
+            删除食材（删除流水）
+            </summary>
+            <remarks>
+            buy_date为null删除所有同名食材，否则删除指定批次食材；
+            1：删除成功；0：不存在食材，删除失败；-1：连接失败
+            </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.getAllIngredient">
+            <summary>
+            返回所有食材
+            </summary>
+            <remarks>
+            有记录返回元组，没有返回空元组，连接错误返回null
+            </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Ingredient.updateIngredient(WebApplication2.Controllers.Ingredient.ingredient[])">
+            <summary>
+            更新食材
+            </summary>
+            <remarks>
+            需要输入新旧食材信息二元组，旧元组需要ingre_name和buy_date即可，
+            新元组需要除s_id和s_time以外的信息；
+            2：新元组当天已存在该食材，将只进行库存更改；
+            1：更新成功；0查找旧食材失败；
+            -1：连接失败；-2：元组数量异常；
+            </remarks>
+        </member>
+        <member name="T:WebApplication2.Controllers.Reservation">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Reservation.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Reservation.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Reservation.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Reservation.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Reservation.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Reservation.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Reservation.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Reservation.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Reservation.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Reservation.getTable(System.String,System.String,System.Int32)">
+             <summary>
+             获取所有可选餐桌
+             </summary>
+             <param name="reservation_date">yyyy-mm-dd</param>
+            <param name="start_time">hh24:mi</param>
+            <param name="people_num"></param>
+             <returns></returns>
+             <remarks>
+             异常返回：null
+             </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Reservation.reserveTable(WebApplication2.Controllers.reservation_information)">
+            <summary>
+            尝试预定
+            </summary>
+            <param name="r_inf"></param>
+            <remarks>
+            1-预约成功
+            2-预约已满
+            3-当日已经预约
+            4-数据库连接失败
+            </remarks>
+        </member>
+        <member name="T:WebApplication2.Controllers.Statement">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Statement.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Statement.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Statement.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.Statement.statement">
+            <summary>
+            流水记录，按种类计算金额
+            </summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.Statement.statementDetail">
+            <summary>
+            流水明细
+            </summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.generateStatementID">
+            <summary>生成流水s_id</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.insertIntoStatement(WebApplication2.Controllers.Statement.statementDetail)">
+            <summary>增加流水记录</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.deleteStatement(System.String,System.String)">
+            <summary>删除流水记录</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.getStatementDetail(System.String,System.String)">
+            <summary>
+            返回某条流水明细
+            </summary>
+            <param name="dateTime">yyyy-mm-dd hh24:mi:ss</param>
+            <param name="s_id">流水id</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.getExpenditureStatement">
+            <summary>
+            查看所有支出流水明细
+            </summary>
+            <remarks>
+            连接失败返回null；
+            无数据返回空元组
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.getIncomeStatement">
+            <summary>
+            查看所有收入流水明细
+            </summary>
+            <remarks>
+            连接失败返回null；
+            没有数据返回空元组
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.getStatement(System.String,System.String)">
+            <summary>
+            查询某段时间流水明细（包括收入和各种支出）
+            </summary>
+            <param name="startDate">yyyy-mm-dd</param>
+            <param name="endDate">yyyy-mm-dd</param>
+            <remarks>
+            连接失败返回null；
+            无数据返回空元组
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.getSpecifideIncome(System.Collections.Generic.List{System.String})">
+            <summary>
+            筛选指定种类流水明细
+            </summary>
+            <remarks>
+            输入：要查找种类的元组；
+            连接失败返回null；
+            无数据返回空元组
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.getIncome(System.String,System.String)">
+            <summary>
+            查询某段时间的收入总额
+            </summary>
+            <param name="startDate">yyyy-mm-dd</param>
+            <param name="endDate">yyyy-mm-dd</param>
+            <remarks>
+            连接失败返回null；
+            无数据返回空元组
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication2.Controllers.Statement.getExpenditure(System.String,System.String)">
+            <summary>
+            查询某段时间内支出额，并按种类返回
+            </summary>
+            <param name="startDate">yyyy-mm-dd</param>
+            <param name="endDate">yyyy-mm-dd</param>
+            <remarks>
+            
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="T:WebApplication2.Controllers.Utensil">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Utensil.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.Utensil.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.Utensil.conn">
+            <summary>连接数据库变量</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.ConnectDb">
+            <summary>连接数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.CloseDb">
+            <summary>断开数据库</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.To_TimeStart(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.To_TimeEnd(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.To_Date(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.To_Timestamp(System.String)">
+            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
+        </member>
+        <member name="T:WebApplication2.Controllers.Utensil.utensil">
+            <summary>
+            器材,增加了花费
+            </summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.getAllUtensil">
+            <summary>
+            查看所有器材
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.addUtensil(WebApplication2.Controllers.Utensil.utensil)">
+            <summary>
+            添加新器材
+            </summary>       
+            <returns></returns>
+            <remarks>输入：name、库存、花费；1：没有该器具；0：已存在器具，添加失败；-1：连接失败</remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.getUtensil(System.String)">
+            <summary>
+             查找器材
+             </summary>       
+             <param name="name">utensil name</param>
+             <returns></returns>
+             <remarks>
+             输入：器具名；
+             查找失败返回name="no"；
+             连接失败返回nmae="fail"
+             </remarks>
+        </member>
+        <member name="M:WebApplication2.Controllers.Utensil.setUtensilAmount(WebApplication2.Controllers.Utensil.utensil)">
+            <summary>
+            修改器材库存
+            </summary>
+            <remarks>
+            在上传的inventory属性就是增加的量,并注意要把花费一起上传；
+            库存量：修改成功(≥0)；
+            -1：没有该器材，修改失败；
+            -2；连接失败
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="T:WebApplication2.Controllers.VIP">
+            <summary>
+            设置路由
+            </summary>
+        </member>
+        <member name="F:WebApplication2.Controllers.VIP.instance">
+            <summary>用于各类之间接口的访问</summary>
+        </member>
+        <member name="P:WebApplication2.Controllers.VIP.Instance">
+            <summary>对应类的实例</summary>
+        </member>
+        <member name="M:WebApplication2.Controllers.VIP.To_TimeStart(System.String)">
+            时间格式转换
+        </member>
+    </members>
+</doc>
