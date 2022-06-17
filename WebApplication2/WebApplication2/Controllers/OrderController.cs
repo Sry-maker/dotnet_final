@@ -73,10 +73,34 @@ namespace WebApplication2.Controllers
                     .First();
                 if (order != null)
                 {
-                    if (order.state != 0) return true;
+                    if (order.state != 1) return true;
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// 获取未支付的订单
+        /// </summary>
+        /// <param name="customer_id"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(DishOrder), 200)]
+        [HttpGet("{customer_id}")]
+        public DishOrder getUnpaidOrder(string customer_id)
+        {
+            if (CustomerController.Instance.getCustomer(customer_id) == null) return null;
+            DishOrder order = null;
+            using (var orderRepo = new OrderRepository())
+            {
+                order = orderRepo.Orders.Where(p => p.customer_id.Equals(customer_id))
+                    .OrderByDescending(p => p.order_id)
+                    .First();
+            }
+            if(order!=null && order.state == 0)
+            {
+                return order;
+            }
+            return null;
         }
 
 
