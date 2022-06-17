@@ -4,37 +4,16 @@
         <name>WebApplication2</name>
     </assembly>
     <members>
-        <member name="T:WebApplication2.Controllers.Customer">
+        <member name="T:WebApplication2.Controllers.CustomerController">
             <summary>
             设置路由
             </summary>
         </member>
-        <member name="F:WebApplication2.Controllers.Customer.instance">
+        <member name="F:WebApplication2.Controllers.CustomerController.instance">
             <summary>用于各类之间接口的访问</summary>
         </member>
-        <member name="P:WebApplication2.Controllers.Customer.Instance">
+        <member name="P:WebApplication2.Controllers.CustomerController.Instance">
             <summary>对应类的实例</summary>
-        </member>
-        <member name="F:WebApplication2.Controllers.Customer.conn">
-            <summary>连接数据库变量</summary>
-        </member>
-        <member name="M:WebApplication2.Controllers.Customer.ConnectDb">
-            <summary>连接数据库</summary>
-        </member>
-        <member name="M:WebApplication2.Controllers.Customer.CloseDb">
-            <summary>断开数据库</summary>
-        </member>
-        <member name="M:WebApplication2.Controllers.Customer.To_TimeStart(System.String)">
-            <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
-        </member>
-        <member name="M:WebApplication2.Controllers.Customer.To_TimeEnd(System.String)">
-            <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
-        </member>
-        <member name="M:WebApplication2.Controllers.Customer.To_Date(System.String)">
-            <summary>时间格式转换 return:yyyy-mm-dd</summary>
-        </member>
-        <member name="M:WebApplication2.Controllers.Customer.To_Timestamp(System.String)">
-            <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
         </member>
         <member name="T:WebApplication2.Controllers.Dining_table">
             <summary>
@@ -85,44 +64,43 @@
             订单
             </summary>
         </member>
-        <member name="T:WebApplication2.Controllers.Dish">
+        <member name="T:WebApplication2.Controllers.DishController">
             <summary>
             设置路由
             </summary>
         </member>
-        <member name="F:WebApplication2.Controllers.Dish.instance">
+        <member name="F:WebApplication2.Controllers.DishController.instance">
             <summary>用于各类之间接口的访问</summary>
         </member>
-        <member name="P:WebApplication2.Controllers.Dish.Instance">
+        <member name="P:WebApplication2.Controllers.DishController.Instance">
             <summary>对应类的实例</summary>
         </member>
-        <member name="F:WebApplication2.Controllers.Dish.conn">
+        <member name="F:WebApplication2.Controllers.DishController.conn">
             <summary>连接数据库变量</summary>
         </member>
-        <member name="M:WebApplication2.Controllers.Dish.ConnectDb">
+        <member name="M:WebApplication2.Controllers.DishController.ConnectDb">
             <summary>连接数据库</summary>
         </member>
-        <member name="M:WebApplication2.Controllers.Dish.CloseDb">
+        <member name="M:WebApplication2.Controllers.DishController.CloseDb">
             <summary>断开数据库</summary>
         </member>
-        <member name="M:WebApplication2.Controllers.Dish.To_TimeStart(System.String)">
+        <member name="M:WebApplication2.Controllers.DishController.To_TimeStart(System.String)">
             <summary>时间格式转换 return:yyyy-mm-dd 00:00:00</summary>
         </member>
-        <member name="M:WebApplication2.Controllers.Dish.To_TimeEnd(System.String)">
+        <member name="M:WebApplication2.Controllers.DishController.To_TimeEnd(System.String)">
             <summary>时间格式转换 return:yyyy-mm-dd 23:59:59</summary>
         </member>
-        <member name="M:WebApplication2.Controllers.Dish.To_Date(System.String)">
+        <member name="M:WebApplication2.Controllers.DishController.To_Date(System.String)">
             <summary>时间格式转换 return:yyyy-mm-dd</summary>
         </member>
-        <member name="M:WebApplication2.Controllers.Dish.To_Timestamp(System.String)">
+        <member name="M:WebApplication2.Controllers.DishController.To_Timestamp(System.String)">
             <summary>时间格式转换 return:yyyy-mm-dd hh:mi:ss</summary>
         </member>
-        <member name="M:WebApplication2.Controllers.Dish.getAllDish">
+        <member name="M:WebApplication2.Controllers.DishController.getAllDish">
             <summary>
             返回菜单
             </summary>
             <returns></returns>
-            <remarks>异常返回null</remarks>
         </member>
         <member name="T:WebApplication2.Controllers.Dish_order">
             <summary>

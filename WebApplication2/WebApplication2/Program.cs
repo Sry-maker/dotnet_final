@@ -1,7 +1,7 @@
 /*var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Welcome "+WebApplication2.Controller.CustomerController.Instance.getCustomer("hth").customer_name);
+app.MapGet("/", () => "Welcome "+WebApplication2.Controllers.CustomerController.Instance.getCustomer("hth").customer_name);
 
 app.Run();
 */

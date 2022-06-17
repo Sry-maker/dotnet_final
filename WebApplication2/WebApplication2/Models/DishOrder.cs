@@ -7,16 +7,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApplication2.Models
 {
-    [Table("customer")]
-    public class Customer
+    [Table("dish_order")]
+    public class DishOrder
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string order_id { get; set; }
+        public DateTime? order_date { get; set; }
+        public string? table_id { get; set; }
         public string? customer_id { get; set; }
-        public string? customer_name { get; set; }
-        public DateTime? birthday { get; set; }
-        public string? password { get; set; }
-        public string? phone { get; set; }
-        public string? url { get; set; }
-        public double? credit { get; set; }
+        public double? price { get; set; }
+        public int? state { get; set; }
     }
 }
