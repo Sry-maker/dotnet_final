@@ -59,7 +59,7 @@ namespace WebApplication2.Controllers
             }
             return order_id;
         }
-
+        
         public static bool existsUnpaidOrder(string customer_id)
         {
             using(var orderRepo = new OrderRepository())
@@ -77,6 +77,28 @@ namespace WebApplication2.Controllers
                 }
             }
             return false;
+        }
+
+        public static void updatePrice(string order_id)
+        {
+            DishOrder order = null;
+            var orderRepo = new OrderRepository();
+            var chooseRepo = new ChooseRepository();
+            
+            order = orderRepo.Orders.Find(order_id);
+            
+            if (order != null && order.state == 0)
+            {
+                var price = (from p in chooseRepo.Chooses.Where(p => p.order_id.Equals(order_id))
+                 join a in chooseRepo.Dishes.Where(a => true)
+                 on p.dish_id equals a.dish_id
+                 //on p.dish_id equals a.dish_id into list
+                 //from l in list.DefaultIfEmpty()
+                 select new { p.num, a.price }).Sum(p=>p.price*p.num);
+
+                order.price = price;
+                orderRepo.SaveChanges();
+            }
         }
 
         /// <summary>
@@ -137,6 +159,45 @@ namespace WebApplication2.Controllers
             return result;
         }
 
-        
+        /// <summary>
+        /// 暂存订单
+        /// </summary>
+        /// <param name="order_id"></param>
+        /// <param name="chooses"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(DishOrder), 200)]
+        [HttpPost]
+        public bool saveOrder(string order_id, List<Choose> chooses)
+        {
+            DishOrder order = null;
+            using(var orderRepo = new OrderRepository())
+            {
+                order = orderRepo.Orders.Find(order_id);
+            }
+            if(order==null||order.state!=0)
+            {
+                return false;
+            }
+            double? price = 0.0;
+            using(var chooseRepo = new ChooseRepository())
+            {
+                DateTime now = DateTime.Now;
+                foreach (var choose in chooses)
+                {
+                    if (choose.num <= 0) continue;
+                    Choose choose1 = new Choose();
+                    choose1.dish_id = choose.dish_id;
+                    choose1.order_date = now;
+                    choose1.order_id = order_id;
+                    choose1.num = choose.num;
+                    chooseRepo.Add(choose1);
+                }
+                chooseRepo.SaveChanges();
+
+                //price = chooseRepo.Chooses.Where(p => p.order_id.Equals(order_id)).Sum(p => p.num * DishController.Instance.getDish(p.dish_id).price);
+            }
+            updatePrice(order_id);
+            return true;
+        }
     }
 }
