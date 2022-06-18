@@ -101,6 +101,21 @@ namespace WebApplication2.Controllers
             }
         }
 
+        public static void updateDishCount(string order_id)
+        {
+            using(var orderRepo = new OrderRepository())
+            {
+                if (orderRepo.Orders.Find(order_id) == null) return;
+            }
+            var chooseRepo = new ChooseRepository();
+            var dishRepo = new DishRepository();
+            foreach(var choose in chooseRepo.Chooses.Where(p => p.order_id.Equals(order_id)).ToList())
+            {
+                dishRepo.Dishes.Find(choose.dish_id).count += choose.num;
+            }
+            dishRepo.SaveChanges();
+        }
+
         /// <summary>
         /// 获取未支付的订单
         /// </summary>
@@ -197,6 +212,46 @@ namespace WebApplication2.Controllers
                 //price = chooseRepo.Chooses.Where(p => p.order_id.Equals(order_id)).Sum(p => p.num * DishController.Instance.getDish(p.dish_id).price);
             }
             updatePrice(order_id);
+            return true;
+        }
+
+        /// <summary>
+        /// 支付订单
+        /// </summary>
+        /// <param name="order_id"></param>
+        /// <param name="credit"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(DishOrder), 200)]
+        [HttpPost]
+        public bool payOrder(string order_id, double credit)
+        {
+            var orderRepo = new OrderRepository();
+            DishOrder order = null;
+            order = orderRepo.Orders.Find(order_id);
+            if(order == null || order.state == 1)
+            {
+                return false;
+            }
+            updatePrice(order_id);
+            string customer_id = order.customer_id;
+            double? credit_used = credit;
+            using(var customerRepo = new CustomerRepository())
+            {
+                Customer customer = customerRepo.Customers.Find(customer_id);
+                if (customer.credit<0)
+                {
+                    customer.credit = 0;
+                }
+                if (customer.credit < credit_used) credit_used = customer.credit;
+                if (credit_used / 2 > order.price / 2) credit_used = order.price;
+                order.price = order.price - credit_used / 2;
+                customer.credit += (int)(order.price / 10) - credit_used;
+                customerRepo.SaveChanges();
+            }
+            order.state = 1;
+            orderRepo.SaveChanges();
+            updateDishCount(order_id);
+            TableController.Instance.releaseTable(order.table_id);
             return true;
         }
     }

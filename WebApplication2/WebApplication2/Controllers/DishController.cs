@@ -25,6 +25,7 @@ namespace WebApplication2.Controllers
         /// <summary>对应类的实例</summary>
         public static DishController Instance { get => instance; set => instance = value; }
 
+
         /// <summary>
         /// 返回菜单
         /// </summary>
