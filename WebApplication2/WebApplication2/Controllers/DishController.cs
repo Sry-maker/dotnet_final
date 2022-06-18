@@ -25,6 +25,17 @@ namespace WebApplication2.Controllers
         /// <summary>对应类的实例</summary>
         public static DishController Instance { get => instance; set => instance = value; }
 
+        /// <summary>
+        /// 获取菜品类型
+        /// </summary>
+        /// <param name="dish_id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public List<string> getDishType(string dish_id)
+        {
+            var typeRepo = new TypeRepository();
+            return typeRepo.Types.Where(p => p.dish_id.Equals(dish_id)).Select(p => p.dish_type).ToList();
+        }
 
         /// <summary>
         /// 返回菜单
@@ -32,13 +43,24 @@ namespace WebApplication2.Controllers
         /// <returns></returns>
         [ProducesResponseType(typeof(List<Dish>), 200)]
         [HttpGet]
-        public List<Dish> getAllDish()
+        public List<Dictionary<string,object>> getAllDish()
         {
-            using (var dishRepo = new DishRepository())
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+            var dishRepo = new DishRepository();
+            List<Dish> dishes = dishRepo.Dishes.ToList();
+            foreach(var dish in dishes)
             {
-                List<Dish> dishes = dishRepo.Dishes.ToList();
-                return dishes;
+                Dictionary<string, object> element = new Dictionary<string, object>();
+                element.Add("dish_id", dish.dish_id);
+                element.Add("dish_name", dish.name);
+                element.Add("dish_price", dish.price);
+                element.Add("dish_type", getDishType(dish.dish_id));
+                element.Add("dish_rate", dish.count);
+                element.Add("dish_info", dish.info);
+
+                result.Add(element);
             }
+            return result;
         }
 
         /// <summary>

@@ -85,5 +85,20 @@ namespace WebApplication2.Controllers
                 return tableRepo.Tables.ToList();
             }
         }
+
+
+        /// <summary>
+        /// 返回所有空闲的非预约用餐桌
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks></remarks>
+        [HttpGet]
+        public ActionResult<List<DiningTable>> getAllEmptyTable()
+        {
+            using (var tableRepo = new TableRepository())
+            {
+                return tableRepo.Tables.Where(p=>p.state.Equals("空闲")&&p.table_id.StartsWith("c")).ToList();
+            }
+        }
     }
 }
