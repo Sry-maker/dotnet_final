@@ -25,6 +25,36 @@ namespace WebApplication2.Controllers
         /// <summary>对应类的实例</summary>
         public static DishController Instance { get => instance; set => instance = value; }
 
+        public static byte[] Url_To_Byte(String filePath)
+        {
+            //第一步：读取图片到byte数组
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(filePath);
+
+            byte[] bytes;
+            using (Stream stream = request.GetResponse().GetResponseStream())
+            {
+                using (MemoryStream mstream = new MemoryStream())
+                {
+                    int count = 0;
+                    byte[] buffer = new byte[1024];
+                    int readNum = 0;
+                    while ((readNum = stream.Read(buffer, 0, 1024)) > 0)
+                    {
+                        count = count + readNum;
+                        mstream.Write(buffer, 0, readNum);
+                    }
+                    mstream.Position = 0;
+                    using (BinaryReader br = new BinaryReader(mstream))
+                    {
+                        bytes = br.ReadBytes(count);
+                    }
+                }
+            }
+            return bytes;
+
+
+        }
+
         /// <summary>
         /// 获取菜品类型
         /// </summary>
@@ -77,6 +107,29 @@ namespace WebApplication2.Controllers
                 Dish dish = dishRepo.Dishes.Find(dish_id);
                 return dish;
             }
+        }
+
+        /// <summary>
+        /// 返回菜品图片
+        /// </summary>
+        /// <param name="dish_id"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// 返回byte[]，异常返回：null
+        /// </remarks>
+        [HttpGet]
+        public ActionResult<byte[]> getDishPict(string dish_id)
+        {
+            DishRepository dishRepo = new DishRepository();
+            if (dishRepo.Dishes.Find(dish_id) != null)
+            {
+                string? url = dishRepo.Dishes.Find(dish_id).url;
+                if (url != null)
+                {
+                    return Url_To_Byte(url);
+                }
+            }
+            return null;
         }
     }
 }
