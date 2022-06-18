@@ -148,5 +148,34 @@ namespace WebApplication2.Controllers
             return result;
         }
 
+
+        /// <summary>
+        /// 返回Top4菜品
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<Dictionary<string,object>> getTop4()
+        {
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+            var dishRepo = new DishRepository();
+            var topList = dishRepo.Dishes.Where(p => !p.dish_id.StartsWith("c")).OrderByDescending(p => p.count).Select(p => p.dish_id).ToList();
+            int i = 0;
+            foreach(var dish_id in topList)
+            {
+                if (i >= 4) break;
+                Dictionary<string, object> element = new Dictionary<string, object>();
+                Dish dish = dishRepo.Dishes.Find(dish_id);
+                i++;
+                element.Add("dish_id", dish_id);
+                element.Add("dish_name", dish.name);
+                element.Add("dish_price", dish.price);
+                element.Add("dish_pict", getDishPict(dish_id));
+                element.Add("dish_rate", dish.count);
+                element.Add("dish_info", dish.info);
+
+                result.Add(element);
+            }
+            return result;
+        }
     }
 }
