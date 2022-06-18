@@ -25,7 +25,7 @@ namespace WebApplication2.Controllers
         /// <summary>对应类的实例</summary>
         public static DishController Instance { get => instance; set => instance = value; }
 
-        public static byte[] Url_To_Byte(String filePath)
+        public static byte[] Url_To_Byte(string filePath)
         {
             //第一步：读取图片到byte数组
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(filePath);
@@ -131,5 +131,22 @@ namespace WebApplication2.Controllers
             }
             return null;
         }
+
+        /// <summary>
+        /// 返回所有菜品图片
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult<List<byte[]>> getAllDishPict()
+        {
+            List<byte[]> result = new List<byte[]>();
+            var dishRepo = new DishRepository();
+            foreach(var dish_id in dishRepo.Dishes.Select(p => p.dish_id).ToList())
+            {
+                result.Add(getDishPict(dish_id).Value);
+            }
+            return result;
+        }
+
     }
 }

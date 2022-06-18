@@ -172,7 +172,7 @@ namespace WebApplication2.Controllers
                         else
                         {
                             element["dish_num"] = (int)element["dish_num"] + choose.num;
-                            element["order_date"] = choose.order_date;
+                            element["order_date"] = choose.order_date; 
                         }
                     }
                 }
