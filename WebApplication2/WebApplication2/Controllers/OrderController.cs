@@ -250,7 +250,7 @@ namespace WebApplication2.Controllers
             }
             order.state = 1;
             orderRepo.SaveChanges();
-            updateDishCount(order_id);
+            updateDishCount(order_id); 
             TableController.Instance.releaseTable(order.table_id);
             return true;
         }
