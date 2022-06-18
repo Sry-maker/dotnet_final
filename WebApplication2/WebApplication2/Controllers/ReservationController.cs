@@ -148,5 +148,75 @@ namespace WebApplication2.Controllers
             }
             return 0;
         }
+
+        /// <summary>
+        /// 按照预约状态筛选出某位顾客预定信息
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>
+        /// 第一位传入customer_id，后面传state，按照所传的state参数顺序返回预定信息
+        /// </remarks>
+        [HttpPost]
+        public List<Dictionary<string,object>> getOnesReservationByState([FromBody] List<string> param)
+        {
+            Dictionary<string, int> map = new Dictionary<string, int> { { "等待", 0 }, { "完成", 1 }, { "取消", 2 }, { "过期", 3 } };
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+            string customer_id = param[0];
+            var reservationRepo = new ReservationRepository();
+            for(int i = 1; i < param.Count(); i++)
+            {
+                var list = reservationRepo.Reservations.Where(p => p.customer_id.Equals(customer_id) && p.state == map[param[i]])
+                    .OrderByDescending(p => p.reservation_date).ToList();
+                foreach(var r in list)
+                {
+                    Dictionary<string, object> element = new Dictionary<string, object>();
+                    element.Add("reservation_id", r.reservation_id);
+                    element.Add("start_time", r.start_time);
+                    element.Add("end_time", r.end_time);
+                    element.Add("table_id", r.table_id);
+                    element.Add("reservation_date", r.reservation_date.ToString().Replace(" 0:00:00",""));
+                    element.Add("customer_id", r.customer_id);
+                    element.Add("customer_name", CustomerController.Instance.getCustomer(r.customer_id) == null ? "" : CustomerController.Instance.getCustomer(r.customer_id).customer_name);
+                    element.Add("reservation_state", param[i]);
+                    result.Add(element);
+                }
+            }
+            if (param.Count() == 1)
+            {
+                return getReservationInformation(customer_id);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 查询顾客所有预定信息(供顾客端)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(List<Dictionary<string, object>>), 200)]
+        [HttpGet]
+        public List<Dictionary<string, object>> getReservationInformation(string id)
+        {
+            Dictionary<string, int> map = new Dictionary<string, int> { { "等待", 0 }, { "完成", 1 }, { "取消", 2 }, { "过期", 3 } };
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+            string customer_id = id;
+            var reservationRepo = new ReservationRepository();
+            var list = reservationRepo.Reservations.Where(p => p.customer_id.Equals(customer_id))
+                    .OrderByDescending(p => p.reservation_date).ToList();
+            foreach (var r in list)
+            {
+                Dictionary<string, object> element = new Dictionary<string, object>();
+                element.Add("reservation_id", r.reservation_id);
+                element.Add("start_time", r.start_time);
+                element.Add("end_time", r.end_time);
+                element.Add("table_id", r.table_id);
+                element.Add("reservation_date", r.reservation_date.ToString().Replace(" 0:00:00", ""));
+                element.Add("customer_id", r.customer_id);
+                element.Add("customer_name", CustomerController.Instance.getCustomer(r.customer_id) == null ? "" : CustomerController.Instance.getCustomer(r.customer_id).customer_name);
+                element.Add("reservation_state", map.Keys.Where(p => map[p].Equals(r.state)).First());
+                result.Add(element);
+            }
+            return result;
+        }
     }
 }
