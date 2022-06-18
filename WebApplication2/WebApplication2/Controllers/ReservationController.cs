@@ -70,7 +70,7 @@ namespace WebApplication2.Controllers
             var reservationRepo = new ReservationRepository();
 
             var usedList = reservationRepo.Reservations.
-                        Where(p => p.reservation_date.Equals(DateTime.Parse(reservation_date)) && p.start_time.Equals(start_time))
+                        Where(p => p.reservation_date.Equals(DateTime.Parse(reservation_date)) && p.start_time.Equals(start_time) && p.state==0)
                         .Select(p=>p.table_id).ToList();
 
             return reservationRepo.Tables.Where(p => p.table_id.StartsWith("r") && p.capacity >= num)
@@ -121,7 +121,32 @@ namespace WebApplication2.Controllers
                 reservationRepo.SaveChanges();
                 return 1;
             }
-            return 2;
+            return 2 ;
+        }
+
+        /// <summary>
+        /// 取消预约
+        /// </summary>
+        /// <param name="reservation_id"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// 需传入reservation_id  返回：0-失败 1-删除成功
+        /// </remarks>
+        [HttpPost]
+        public ActionResult<int> cancelReservation(string reservation_id)
+        {
+            ReservationRepository reservationRepo = new ReservationRepository();
+            var reservation = reservationRepo.Reservations.Find(reservation_id);
+            if (reservation != null && reservation.state == 0 )
+            {
+                if(reservation.reservation_date > DateTime.Now)
+                {
+                    reservation.state = 2;
+                    reservationRepo.SaveChanges();
+                    return 1;
+                }
+            }
+            return 0;
         }
     }
 }
