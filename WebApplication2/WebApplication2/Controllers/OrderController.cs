@@ -123,8 +123,9 @@ namespace WebApplication2.Controllers
         /// <returns></returns>
         [ProducesResponseType(typeof(DishOrder), 200)]
         [HttpGet("{customer_id}")]
-        public DishOrder getUnpaidOrder(string customer_id)
+        public Dictionary<string,object> getTemporaryOrder(string customer_id)
         {
+            Dictionary<string, object> result = new Dictionary<string, object>();
             if (CustomerController.Instance.getCustomer(customer_id) == null) return null;
             DishOrder order = null;
             using (var orderRepo = new OrderRepository())
@@ -135,7 +136,48 @@ namespace WebApplication2.Controllers
             }
             if(order!=null && order.state == 0)
             {
-                return order;
+                result.Add("order_id",order.order_id);
+                result.Add("table_id", order.table_id);
+                result.Add("order_date", order.order_date.ToString().Replace(" 0:00:00",""));
+                result.Add("expense", order.price);
+                result.Add("customer_id", customer_id);
+                var chosen_dish = new List<Dictionary<string, object>>();
+                
+                using (var chooseRepo = new ChooseRepository()) 
+                {
+                    var chooses = chooseRepo.Chooses.Where(p => p.order_id.Equals(order.order_id)).ToList();
+                    foreach (var choose in chooses)
+                    {
+                        bool hasKey = false;
+                        var element = new Dictionary<string, object>();
+                        foreach (var element1 in chosen_dish)
+                        {
+                            if (element1["dish_id"].Equals(choose.dish_id))
+                            {
+                                hasKey = true;
+                                element = element1;
+                                break;
+                            }
+                        }
+                        if (!hasKey)
+                        {
+                            element.Add("dish_id", choose.dish_id);
+                            element.Add("dish_num", choose.num);
+                            Dish dish = DishController.Instance.getDish(choose.dish_id);
+                            element.Add("dish_price", dish.price);
+                            element.Add("dish_name", dish.name);
+                            element.Add("order_date", choose.order_date);
+                            chosen_dish.Add(element);
+                        }
+                        else
+                        {
+                            element["dish_num"] = (int)element["dish_num"] + choose.num;
+                            element["order_date"] = choose.order_date;
+                        }
+                    }
+                }
+                result.Add("chosen_dish", chosen_dish);
+                return result;
             }
             return null;
         }

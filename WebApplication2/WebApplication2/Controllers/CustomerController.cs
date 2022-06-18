@@ -40,5 +40,20 @@ namespace WebApplication2.Controllers
                 return customer;
             }
         }
+
+        /// <summary>
+        /// 返回积分
+        /// </summary>
+        /// <param name="customer_id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public double? getCredit(string customer_id)
+        {
+            if (getCustomer(customer_id) != null)
+            {
+                return getCustomer(customer_id).credit; 
+            }
+            return null;
+        }
     }
 }
