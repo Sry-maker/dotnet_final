@@ -176,7 +176,7 @@ namespace WebApplication2.Controllers
                     element.Add("table_id", r.table_id);
                     element.Add("reservation_date", r.reservation_date.ToString().Replace(" 0:00:00",""));
                     element.Add("customer_id", r.customer_id);
-                    element.Add("customer_name", CustomerController.Instance.getCustomer(r.customer_id) == null ? "" : CustomerController.Instance.getCustomer(r.customer_id).customer_name);
+                    element.Add("customer_name", CustomerController.getCustomer(r.customer_id) == null ? "" : CustomerController.getCustomer(r.customer_id).customer_name);
                     element.Add("reservation_state", param[i]);
                     result.Add(element);
                 }
@@ -212,7 +212,7 @@ namespace WebApplication2.Controllers
                 element.Add("table_id", r.table_id);
                 element.Add("reservation_date", r.reservation_date.ToString().Replace(" 0:00:00", ""));
                 element.Add("customer_id", r.customer_id);
-                element.Add("customer_name", CustomerController.Instance.getCustomer(r.customer_id) == null ? "" : CustomerController.Instance.getCustomer(r.customer_id).customer_name);
+                element.Add("customer_name", CustomerController.getCustomer(r.customer_id) == null ? "" : CustomerController.getCustomer(r.customer_id).customer_name);
                 element.Add("reservation_state", map.Keys.Where(p => map[p].Equals(r.state)).First());
                 result.Add(element);
             }

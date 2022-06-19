@@ -126,7 +126,7 @@ namespace WebApplication2.Controllers
         public Dictionary<string,object> getTemporaryOrder(string customer_id)
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
-            if (CustomerController.Instance.getCustomer(customer_id) == null) return null;
+            if (CustomerController.getCustomer(customer_id) == null) return null;
             DishOrder order = null;
             using (var orderRepo = new OrderRepository())
             {
