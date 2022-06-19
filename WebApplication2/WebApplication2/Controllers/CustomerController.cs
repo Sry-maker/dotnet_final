@@ -271,7 +271,7 @@ namespace WebApplication2.Controllers
         /// <param name="customer_id"></param>
         /// <returns></returns>
         [HttpPost]
-        public async void setCustomerPict(string customer_id,String fileUrl)
+        public async void setCustomerPictByLocalUrl(string customer_id,String fileUrl)
         {
             var customerRepo = new CustomerRepository();
             Customer customer = customerRepo.Customers.Find(customer_id);
@@ -283,12 +283,12 @@ namespace WebApplication2.Controllers
         }
 
         /// <summary>
-        /// 上传用户头像通过
+        /// 上传用户头像通过Base64
         /// </summary>
         /// <param name="customer_id"></param>
         /// <returns></returns>
         [HttpPost]
-        public async void setCustomerPictByBase64(string customer_id, byte[] base64)
+        public async void setCustomerPict(string customer_id, byte[] base64)
         {
             var customerRepo = new CustomerRepository();
             Customer customer = customerRepo.Customers.Find(customer_id);
@@ -303,5 +303,55 @@ namespace WebApplication2.Controllers
             if (flag) customerRepo.SaveChanges();
         }
 
+        /// <summary>
+        /// 验证码登录：检测是否有该顾客，没有则增加
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <remarks>
+        /// 创建失败:"创建失败"
+        /// 新用户创建成功:新用户id
+        /// </remarks>
+        [HttpPost]
+        [ApiExplorerSettings(GroupName = "customer")]
+        public ActionResult<string> checkCustomerandAdd([FromBody] string phone_num)
+        {
+            var customerRepo = new CustomerRepository();
+            if (customerRepo.Customers.Where(p => p.phone.Equals(phone_num)).Count() == 0)
+            {
+                int yr = DateTime.Now.Year;
+                int mon = DateTime.Now.Month;
+                int day = DateTime.Now.Day;
+                string date = yr.ToString().Substring(2, 2) + mon.ToString() + day.ToString();
+                if (date.Length == 4)
+                {
+                    date = date.Insert(2, "0");
+                    date = date.Insert(4, "0");
+                }
+                else if (date.Length == 5 && mon < 10)
+                {
+                    date = date.Insert(2, "0");
+                }
+                else if (date.Length == 5 && day < 10)
+                {
+                    date = date.Insert(4, "0");
+                }
+                string customer_id = date + "0000";
+
+                //生成新id机制
+                string? max_id = customerRepo.Customers.Where(p => p.customer_id.StartsWith(date)).Select(p => p.customer_id).Max();
+                if (max_id != null)
+                {
+                    customer_id = (long.Parse(max_id) + 1).ToString();
+                }
+                Customer customer = new Customer();
+                customer.phone = phone_num;
+                customer.customer_id = customer_id;
+                customer.credit = -1;
+                customerRepo.Customers.Add(customer);
+                customerRepo.SaveChanges();
+                return customer_id;
+            }
+            return null;
+        }
     }
 }
