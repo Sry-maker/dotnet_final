@@ -18,10 +18,6 @@ namespace WebApplication2.Utils
         public async static Task<bool> uploadPicture(string bucketname,string objectname,string filename)
         {
             Console.WriteLine("MinIO connecting");
-            //MinioClient minioClient = new MinioClient("116.62.208.68:9000",
-            //                           "JETHYFZIQ12OX3N1LJ3G",
-            //                           "zzwEX3IWJ+dqhVLRM+AQOhpvQ5vBc+xooeXsOy7We"
-            //                     ).WithSSL();
             MinioClient minioClient = new MinioClient();
             minioClient = minioClient.WithEndpoint("116.62.208.68:9000").WithCredentials("JETHYFZIQ12OX3N1LJ3G", "zwEX3IWJ+dqhVLRM+AQOhpvQ5vBc+xooeXsOy7We").Build();
             Console.WriteLine("MinIO connected");
