@@ -25,10 +25,10 @@ namespace WebApplication2.Controllers
         /// <summary>对应类的实例</summary>
         public static CustomerController Instance { get => instance; set => instance = value; }
 
-        
+
         public static Customer getCustomer(string customer_id)
         {
-            using(var customerRepo=new CustomerRepository())
+            using (var customerRepo = new CustomerRepository())
             {
                 Customer customer = customerRepo.Customers.Find(customer_id);
                 return customer;
@@ -42,7 +42,7 @@ namespace WebApplication2.Controllers
         /// <returns></returns>
         [ProducesResponseType(typeof(Customer), 200)]
         [HttpGet("{customer_id}")]
-        public Dictionary<string,object> getCustomerInformation(string customer_id)
+        public Dictionary<string, object> getCustomerInformation(string customer_id)
         {
             Customer customer = getCustomer(customer_id);
             if (customer != null)
@@ -50,7 +50,7 @@ namespace WebApplication2.Controllers
                 Dictionary<string, object> result = new Dictionary<string, object>();
                 result.Add("customer_id", customer.customer_id);
                 result.Add("customer_name", customer.customer_name);
-                result.Add("birthday", customer.birthday.ToString().Replace(" 0:00:00",""));
+                result.Add("birthday", customer.birthday.ToString().Replace(" 0:00:00", ""));
                 result.Add("phone_num", customer.phone);
                 result.Add("credit", customer.credit);
                 return result;
@@ -68,7 +68,7 @@ namespace WebApplication2.Controllers
         {
             if (getCustomer(customer_id) != null)
             {
-                return getCustomer(customer_id).credit; 
+                return getCustomer(customer_id).credit;
             }
             return null;
         }
@@ -88,7 +88,7 @@ namespace WebApplication2.Controllers
             var customerRepo = new CustomerRepository();
             Customer customer = null;
             customer = customerRepo.Customers.Find(customer_id);
-            if (customer != null) 
+            if (customer != null)
             {
                 if (pwd.Equals(customer.password)) return 1;
                 else return 2;
@@ -161,7 +161,7 @@ namespace WebApplication2.Controllers
         /// 0-id不存在 1-修改成功 2-手机号已存在
         /// </remarks>
         [HttpPost]
-        public ActionResult<int> setCustomerInfo(string customer_id,string customer_name,string birthday,string phone_num)
+        public ActionResult<int> setCustomerInfo(string customer_id, string customer_name, string birthday, string phone_num)
         {
             var customerRepo = new CustomerRepository();
             Customer customer = null;
@@ -175,6 +175,33 @@ namespace WebApplication2.Controllers
             customerRepo.SaveChanges();
             return 1;
 
+        }
+
+        /// <summary>
+        /// 顾客密码修改
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>
+        /// 0-id不存在 1-修改成功 2-用户名存在密码错误 3-数据库连接失败
+        /// </remarks>
+        [HttpPost]
+        public ActionResult<int> setCustomerPwd(string customer_id,string customer_password,string new_password)
+        {
+            using (var customerRepo = new CustomerRepository())
+            {
+                Customer customer = customerRepo.Customers.Find(customer_id);
+                if (customer != null)
+                {
+                    if (customer_password.Equals(customer.password))
+                    {
+                        customer.password = new_password;
+                        customerRepo.SaveChanges();
+                        return 1;
+                    }
+                    else return 2;
+                }
+                return 0;
+            }
         }
     }
 }
