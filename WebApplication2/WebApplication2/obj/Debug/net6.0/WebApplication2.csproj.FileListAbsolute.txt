@@ -32,3 +32,9 @@ C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debu
 C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\Crc32.NET.dll
+C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\Minio.dll
+C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\Minio.AspNetCore.dll
+C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\System.Reactive.dll
+C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\System.Reactive.Linq.dll

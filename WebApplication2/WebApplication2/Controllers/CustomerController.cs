@@ -9,6 +9,7 @@ using System.Text;
 using System.Security.Cryptography;
 using WebApplication2.Repository;
 using WebApplication2.Models;
+using WebApplication2.Utils;
 
 namespace WebApplication2.Controllers
 {
@@ -20,6 +21,49 @@ namespace WebApplication2.Controllers
     [ApiExplorerSettings(GroupName = "customer")]
     public class CustomerController
     {
+        public static byte[] Url_To_Byte(string filePath)
+        {
+            //第一步：读取图片到byte数组
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(filePath);
+
+            byte[] bytes;
+            using (Stream stream = request.GetResponse().GetResponseStream())
+            {
+                using (MemoryStream mstream = new MemoryStream())
+                {
+                    int count = 0;
+                    byte[] buffer = new byte[1024];
+                    int readNum = 0;
+                    while ((readNum = stream.Read(buffer, 0, 1024)) > 0)
+                    {
+                        count = count + readNum;
+                        mstream.Write(buffer, 0, readNum);
+                    }
+                    mstream.Position = 0;
+                    using (BinaryReader br = new BinaryReader(mstream))
+                    {
+                        bytes = br.ReadBytes(count);
+                    }
+                }
+            }
+            return bytes;
+        }
+
+        public static Stream BytesToStream(string fileName, byte[] dataBytes)
+        {
+            if (dataBytes == null)
+            {
+                return null;
+            }
+            //MemoryStream ms = new MemoryStream(dataBytes);
+            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                fs.Write(dataBytes, 0, dataBytes.Length);
+                return fs;
+            }
+
+        }
+
         /// <summary>用于各类之间接口的访问</summary>
         private static CustomerController instance = new CustomerController();
         /// <summary>对应类的实例</summary>
@@ -203,5 +247,61 @@ namespace WebApplication2.Controllers
                 return 0;
             }
         }
+
+        /// <summary>
+        /// 返回指定用户头像
+        /// </summary>
+        /// <param name="customer_id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult<byte[]> getCustomerPict(string customer_id)
+        {
+            var customerRepo = new CustomerRepository();
+            Customer customer = customerRepo.Customers.Find(customer_id);
+            if(customer!=null && customer.url != null)
+            {
+                return Url_To_Byte(customer.url);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 上传用户头像通过本地url
+        /// </summary>
+        /// <param name="customer_id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async void setCustomerPict(string customer_id,String fileUrl)
+        {
+            var customerRepo = new CustomerRepository();
+            Customer customer = customerRepo.Customers.Find(customer_id);
+            if (customer == null) return;
+            string filename = customer_id + fileUrl.Substring(fileUrl.LastIndexOf("."));
+            bool flag = await MinioUtil.uploadPicture("customer", filename, fileUrl);
+            customer.url = "116.62.208.68:9000/customer/" + filename;
+            //if(flag) customerRepo.SaveChanges();
+        }
+
+        /// <summary>
+        /// 上传用户头像通过
+        /// </summary>
+        /// <param name="customer_id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async void setCustomerPictByBase64(string customer_id, byte[] base64)
+        {
+            var customerRepo = new CustomerRepository();
+            Customer customer = customerRepo.Customers.Find(customer_id);
+            if (customer == null) return;
+            string filename = customer_id + ".jpg";
+            string currentDirectory = System.Environment.CurrentDirectory;
+            Console.WriteLine(currentDirectory) ;
+
+            BytesToStream(currentDirectory + "/" + filename, base64);
+            bool flag = await MinioUtil.uploadPicture("customer", filename, currentDirectory + "/" + filename);
+            customer.url = "116.62.208.68:9000/customer/" + filename;
+            if (flag) customerRepo.SaveChanges();
+        }
+
     }
 }
