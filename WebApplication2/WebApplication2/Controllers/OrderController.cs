@@ -9,6 +9,7 @@ using System.Text;
 using System.Security.Cryptography;
 using WebApplication2.Repository;
 using WebApplication2.Models;
+using CliDll;
 
 namespace WebApplication2.Controllers
 {
@@ -98,6 +99,17 @@ namespace WebApplication2.Controllers
 
                 order.price = price;
                 orderRepo.SaveChanges();
+
+                /*double sum = 0.0;
+                Arith arith = new Arith();
+                foreach (var choose in chooseRepo.Chooses.Where(p => p.order_id.Equals(order_id)).ToList())
+                {
+                    double? dish_price = chooseRepo.Dishes.Find(choose.dish_id).price;
+                    double cost = arith.MulCli(dish_price.Value,choose.num.Value);
+                    sum = arith.AddCli(sum, cost);
+                }
+                Console.WriteLine($"订单金额已更新，为{sum}元");
+                Console.WriteLine($"订单金额已更新，为{price}元");*/
             }
         }
 
