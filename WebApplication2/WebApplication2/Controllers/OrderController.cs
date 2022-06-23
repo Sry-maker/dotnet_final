@@ -17,7 +17,7 @@ namespace WebApplication2.Controllers
     /// </summary>
     [Route("api/[Controller]/[action]")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "dish_order")]
+    [ApiExplorerSettings(GroupName = "OrderController")]
     public class OrderController
     {
         /// <summary>用于各类之间接口的访问</summary>

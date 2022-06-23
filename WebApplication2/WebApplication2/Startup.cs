@@ -35,67 +35,67 @@ namespace WebApplication2
             //注册Swagger生成器，定义一个Swagger 文档
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("reservation", new OpenApiInfo
+                c.SwaggerDoc("ReservationController", new OpenApiInfo
                 {
                     Version = "v2",
                     Title = "reservation API文档",
                     Description = "预订",
                 });
-                c.SwaggerDoc("customer", new OpenApiInfo
+                c.SwaggerDoc("CustomerController", new OpenApiInfo
                 {
                     Version = "v2",
                     Title = "customer API文档",
                     Description = "顾客",
                 });
-                c.SwaggerDoc("statement", new OpenApiInfo
-                {
-                    Version = "v2",
-                    Title = "statement API文档",
-                    Description = "流水",
-                });
-                c.SwaggerDoc("vip", new OpenApiInfo
-                {
-                    Version = "v2",
-                    Title = "customer API文档",
-                    Description = "会员",
-                });
-                c.SwaggerDoc("employee", new OpenApiInfo
-                {
-                    Version = "v2",
-                    Title = "employee API文档",
-                    Description = "员工",
-                });
-                c.SwaggerDoc("ingredient", new OpenApiInfo
-                {
-                    Version = "v2",
-                    Title = "ingredient API文档",
-                    Description = "食材",
-                });
-                c.SwaggerDoc("dish", new OpenApiInfo
+                //c.SwaggerDoc("statement", new OpenApiInfo
+                //{
+                //    Version = "v2",
+                //    Title = "statement API文档",
+                //    Description = "流水",
+                //});
+                //c.SwaggerDoc("vip", new OpenApiInfo
+                //{
+                //    Version = "v2",
+                //    Title = "customer API文档",
+                //    Description = "会员",
+                //});
+                //c.SwaggerDoc("employee", new OpenApiInfo
+                //{
+                //    Version = "v2",
+                //    Title = "employee API文档",
+                //    Description = "员工",
+                //});
+                //c.SwaggerDoc("ingredient", new OpenApiInfo
+                //{
+                //    Version = "v2",
+                //    Title = "ingredient API文档",
+                //    Description = "食材",
+                //});
+                c.SwaggerDoc("DishController", new OpenApiInfo
                 {
                     Version = "v2",
                     Title = "dish API文档",
                     Description = "菜品",
                 });
-                c.SwaggerDoc("utensil", new OpenApiInfo
-                {
-                    Version = "v2",
-                    Title = "utensil API文档",
-                    Description = "器具",
-                });
-                c.SwaggerDoc("dining_table", new OpenApiInfo
+                //c.SwaggerDoc("utensil", new OpenApiInfo
+                //{
+                //    Version = "v2",
+                //    Title = "utensil API文档",
+                //    Description = "器具",
+                //});
+                c.SwaggerDoc("TableController", new OpenApiInfo
                 {
                     Version = "v2",
                     Title = "dining_table API文档",
                     Description = "餐桌",
                 });
-                c.SwaggerDoc("dish_order", new OpenApiInfo
+                c.SwaggerDoc("OrderController", new OpenApiInfo
                 {
                     Version = "v2",
                     Title = "dish_order API文档",
                     Description = "订单",
                 });
-                c.SwaggerDoc("evaluation", new OpenApiInfo
+                c.SwaggerDoc("EvaluationController", new OpenApiInfo
                 {
                     Version = "v2",
                     Title = "evaluation API文档",
@@ -122,17 +122,17 @@ namespace WebApplication2
             //启用中间件服务生成Swagger，指定Swagger JSON终结点
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/customer/swagger.json", "customer API");
-                c.SwaggerEndpoint("/swagger/dining_table/swagger.json", "dining_table API");
-                c.SwaggerEndpoint("/swagger/dish/swagger.json", "dish API");
-                c.SwaggerEndpoint("/swagger/dish_order/swagger.json", "dish_order API");
-                c.SwaggerEndpoint("/swagger/employee/swagger.json", "employee API");
-                c.SwaggerEndpoint("/swagger/evaluation/swagger.json", "evaluation API");
-                c.SwaggerEndpoint("/swagger/ingredient/swagger.json", "ingredient API");
-                c.SwaggerEndpoint("/swagger/reservation/swagger.json", "reservation API");
-                c.SwaggerEndpoint("/swagger/statement/swagger.json", "statement API");
-                c.SwaggerEndpoint("/swagger/utensil/swagger.json", "utensil API");
-                c.SwaggerEndpoint("/swagger/vip/swagger.json", "vip API");
+                c.SwaggerEndpoint("/swagger/CustomerController/swagger.json", "customer API");
+                c.SwaggerEndpoint("/swagger/TableController/swagger.json", "dining_table API");
+                c.SwaggerEndpoint("/swagger/DishController/swagger.json", "dish API");
+                c.SwaggerEndpoint("/swagger/OrderController/swagger.json", "dish_order API");
+                //c.SwaggerEndpoint("/swagger/employee/swagger.json", "employee API");
+                c.SwaggerEndpoint("/swagger/EvaluationController/swagger.json", "evaluation API");
+                //c.SwaggerEndpoint("/swagger/ingredient/swagger.json", "ingredient API");
+                c.SwaggerEndpoint("/swagger/ReservationController/swagger.json", "reservation API");
+                //c.SwaggerEndpoint("/swagger/statement/swagger.json", "statement API");
+                //c.SwaggerEndpoint("/swagger/utensil/swagger.json", "utensil API");
+                //c.SwaggerEndpoint("/swagger/vip/swagger.json", "vip API");
                 c.RoutePrefix = string.Empty;//设置根节点访问
             });
 

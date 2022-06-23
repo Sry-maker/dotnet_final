@@ -17,7 +17,7 @@ namespace WebApplication2.Controllers
     /// </summary>
     [Route("api/[Controller]/[action]")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "dining_table")]
+    [ApiExplorerSettings(GroupName = "TableController")]
     public class TableController
     {
         /// <summary>用于各类之间接口的访问</summary>

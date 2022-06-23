@@ -20,7 +20,7 @@ namespace WebApplication2.Controllers
     /// </summary>
     [Route("api/[Controller]/[action]")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "customer")]
+    [ApiExplorerSettings(GroupName = "CustomerController")]
     public class CustomerController
     {
         public static byte[] Url_To_Byte(string filePath)
@@ -147,9 +147,6 @@ namespace WebApplication2.Controllers
                 if (password_encrypted == null) return 3;
                 IntPtr intPtr = PasswordDllMake.Decryption(password_encrypted);
                 string password_decrypted = Marshal.PtrToStringAnsi(intPtr);
-                Console.WriteLine(password_decrypted);
-                Console.WriteLine(password_encrypted);
-                Console.WriteLine(customer.password);
                 if (pwd.Equals(password_decrypted)) return 1;
                 else return 2;
             }

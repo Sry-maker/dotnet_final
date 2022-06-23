@@ -17,7 +17,7 @@ namespace WebApplication2.Controllers
     /// </summary>
     [Route("api/[Controller]/[action]")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "reservation")]
+    [ApiExplorerSettings(GroupName = "ReservationController")]
 
     public class ReservationController
     {
