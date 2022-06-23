@@ -7,9 +7,11 @@ using System.Net;
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
+using System.Runtime.InteropServices;
 using WebApplication2.Repository;
 using WebApplication2.Models;
 using WebApplication2.Utils;
+
 
 namespace WebApplication2.Controllers
 {
@@ -95,6 +97,13 @@ namespace WebApplication2.Controllers
                 result.Add("customer_id", customer.customer_id);
                 result.Add("customer_name", customer.customer_name);
                 result.Add("birthday", customer.birthday.ToString().Replace(" 0:00:00", ""));
+                string pwd = customer.password;
+                IntPtr intPtr = PasswordDllMake.Encryption(pwd);
+                string pwd_1 = Marshal.PtrToStringAnsi(intPtr);
+                IntPtr intPtr1 = PasswordDllMake.Decryption(pwd_1);
+                string pwd_2 = Marshal.PtrToStringAnsi(intPtr1);
+                Console.WriteLine(pwd_2);
+                //result.Add("password", pwd_2);
                 result.Add("phone_num", customer.phone);
                 result.Add("credit", customer.credit);
                 return result;
@@ -134,7 +143,14 @@ namespace WebApplication2.Controllers
             customer = customerRepo.Customers.Find(customer_id);
             if (customer != null)
             {
-                if (pwd.Equals(customer.password)) return 1;
+                string? password_encrypted = customer.password;
+                if (password_encrypted == null) return 3;
+                IntPtr intPtr = PasswordDllMake.Decryption(password_encrypted);
+                string password_decrypted = Marshal.PtrToStringAnsi(intPtr);
+                Console.WriteLine(password_decrypted);
+                Console.WriteLine(password_encrypted);
+                Console.WriteLine(customer.password);
+                if (pwd.Equals(password_decrypted)) return 1;
                 else return 2;
             }
             return 0;
@@ -187,7 +203,9 @@ namespace WebApplication2.Controllers
             }
             Customer customer = new Customer();
             customer.phone = phone_num;
-            customer.password = customer_password;
+            IntPtr intPtr = PasswordDllMake.Encryption(customer_password);
+            string? password_encrypted = Marshal.PtrToStringAnsi(intPtr);
+            customer.password = password_encrypted;
             customer.customer_name = customer_name;
             customer.customer_id = customer_id;
             customer.credit = -1;
@@ -236,9 +254,15 @@ namespace WebApplication2.Controllers
                 Customer customer = customerRepo.Customers.Find(customer_id);
                 if (customer != null)
                 {
-                    if (customer_password.Equals(customer.password))
+                    string? password_encrypted = customer.password;
+                    if (password_encrypted == null) return 2;
+                    IntPtr intPtr = PasswordDllMake.Decryption(password_encrypted);
+                    string password_decrypted = Marshal.PtrToStringAnsi(intPtr);
+                    if (password_encrypted.Equals(customer.password))
                     {
-                        customer.password = new_password;
+                        IntPtr new_intPtr = PasswordDllMake.Encryption(new_password);
+                        string? new_password_encrypted = Marshal.PtrToStringAnsi(new_intPtr);
+                        customer.password = new_password_encrypted;
                         customerRepo.SaveChanges();
                         return 1;
                     }
