@@ -90,13 +90,13 @@ namespace WebApplication2.Controllers
             
             if (order != null && order.state == 0)
             {
-                var price = (from p in chooseRepo.Chooses.Where(p => p.order_id.Equals(order_id))
+                double? price = (from p in chooseRepo.Chooses.Where(p => p.order_id.Equals(order_id))
                  join a in chooseRepo.Dishes.Where(a => true)
                  on p.dish_id equals a.dish_id
                  //on p.dish_id equals a.dish_id into list
                  //from l in list.DefaultIfEmpty()
                  select new { p.num, a.price }).Sum(p=>p.price*p.num);
-
+                if (price == null) price = 0.0; 
                 order.price = price;
                 orderRepo.SaveChanges();
 
@@ -232,7 +232,7 @@ namespace WebApplication2.Controllers
         /// <param name="customer_id"></param>
         /// <returns></returns>
         [ProducesResponseType(typeof(Dictionary<string,object>), 200)]
-        [HttpGet("{customer_id}")]
+        [HttpGet]
         public Dictionary<string,object> newOrder(string customer_id,string table_id)
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
