@@ -17,6 +17,7 @@ namespace WebApplication2.Models
         public string? url { get; set; }
         public string? info { get; set; }
         public int? count { get; set; }
+        public int? index { get; set; }
                 
     }
 }

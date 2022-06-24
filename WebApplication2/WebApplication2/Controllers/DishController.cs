@@ -87,7 +87,7 @@ namespace WebApplication2.Controllers
                 element.Add("dish_type", getDishType(dish.dish_id));
                 element.Add("dish_rate", dish.count);
                 element.Add("dish_info", dish.info);
-
+                element.Add("index", dish.index);
                 result.Add(element);
             }
             return result;
@@ -172,7 +172,7 @@ namespace WebApplication2.Controllers
                 element.Add("dish_pict", getDishPict(dish_id));
                 element.Add("dish_rate", dish.count);
                 element.Add("dish_info", dish.info);
-
+                element.Add("index",dish.index);
                 result.Add(element);
             }
             return result;
