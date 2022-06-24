@@ -147,17 +147,21 @@ namespace WebApplication2.Controllers
         /// 需传入reservation_id  返回：0-失败 1-删除成功
         /// </remarks>
         [HttpPost]
-        public ActionResult<int> cancelReservation(string reservation_id)
+        public ActionResult<int> cancelReservation(string customer_id,string reservation_date)
         {
             ReservationRepository reservationRepo = new ReservationRepository();
-            var reservation = reservationRepo.Reservations.Find(reservation_id);
-            if (reservation != null && reservation.state == 0 )
+            List<Reservation> reservationList = reservationRepo.Reservations.Where(p=>p.customer_id.Equals(customer_id)&&p.reservation_date.Equals(DateTime.Parse(reservation_date))).ToList();
+            if (reservationList.Count > 0)
             {
-                if(reservation.reservation_date > DateTime.Now)
+                Reservation reservation = reservationList.First();
+                if (reservation != null && reservation.state == 0)
                 {
-                    reservation.state = 2;
-                    reservationRepo.SaveChanges();
-                    return 1;
+                    if (reservation.reservation_date > DateTime.Now)
+                    {
+                        reservation.state = 2;
+                        reservationRepo.SaveChanges();
+                        return 1;
+                    }
                 }
             }
             return 0;
