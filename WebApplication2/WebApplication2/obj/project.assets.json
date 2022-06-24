@@ -4604,11 +4604,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\新建文件夹 (3)\\dotnet_final\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\dotnet_final\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
       "projectName": "WebApplication2",
-      "projectPath": "C:\\Users\\Lenovo\\Desktop\\新建文件夹 (3)\\dotnet_final\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\dotnet_final\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Desktop\\新建文件夹 (3)\\dotnet_final\\WebApplication2\\WebApplication2\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\Desktop\\dotnet_final\\WebApplication2\\WebApplication2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

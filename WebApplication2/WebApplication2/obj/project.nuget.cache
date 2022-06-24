@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5LQ/FHw51Zv9kafMVgCm3WrN5Ox7KHt6AIRIhS0hstUXXbNHjgggdkAzERWXckybVHlEpmzhIibpLO42m321ew==",
+  "dgSpecHash": "tp6zlW+xA1bxIdU3Q+U/W7vgdJyi9D3fWX7b6dLTZjV+khhMWGxKOnGyYW7hRBD/QoRY12prGmkQUs16T7XiWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\新建文件夹 (3)\\dotnet_final\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\dotnet_final\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\crc32.net\\1.2.0\\crc32.net.1.2.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

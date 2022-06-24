@@ -1,0 +1,5 @@
+﻿  CliDll.cpp
+  .NETFramework,Version=v4.8.AssemblyAttributes.cpp
+  正在生成代码...
+  CliDll.obj : 遇到了 MSIL 模块；对 MSIL 禁用了增量链接；正在执行完全链接
+  CliDll.vcxproj -> C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\CliDll.dll
