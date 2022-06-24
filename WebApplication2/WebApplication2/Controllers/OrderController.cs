@@ -183,8 +183,16 @@ namespace WebApplication2.Controllers
                         }
                         else
                         {
-                            element["dish_num"] = (int)element["dish_num"] + choose.num;
-                            element["order_date"] = choose.order_date; 
+                            if (choose.num == null||choose.num==0)
+                            {
+                                chooseRepo.Chooses.Remove(choose);
+                                chooseRepo.SaveChanges();
+                            }
+                            else
+                            {
+                                element["dish_num"] = (int)element["dish_num"] + choose.num;
+                                element["order_date"] = choose.order_date;
+                            }
                         }
                     }
                 }
