@@ -142,7 +142,7 @@ namespace WebApplication2.Controllers
             DishOrder order = null;
             using (var orderRepo = new OrderRepository())
             {
-                order = orderRepo.Orders.Where(p => p.customer_id.Equals(customer_id))
+                order = orderRepo.Orders.Where(p => p.customer_id.Equals(customer_id)&&p.state==0)
                     .OrderByDescending(p => p.order_id)
                     .First();
             }
@@ -154,7 +154,17 @@ namespace WebApplication2.Controllers
                 result.Add("expense", order.price);
                 result.Add("customer_id", customer_id);
                 var chosen_dish = new List<Dictionary<string, object>>();
-                
+                //DishRepository dishRepo = new DishRepository();
+                //foreach(var dish in dishRepo.Dishes)
+                //{
+                //    Dictionary<string, object> element = new Dictionary<string, object>();
+                //    element.Add("dish_id", dish.dish_id);
+                //    element.Add("dish_num", 0);
+                //    element.Add("dish_price", dish.price);
+                //    element.Add("dish_name", dish.name);
+                //    chosen_dish.Add(element);
+                //}
+
                 using (var chooseRepo = new ChooseRepository()) 
                 {
                     var chooses = chooseRepo.Chooses.Where(p => p.order_id.Equals(order.order_id)).ToList();
@@ -196,10 +206,38 @@ namespace WebApplication2.Controllers
                         }
                     }
                 }
+                //using (var chooseRepo = new ChooseRepository())
+                //{
+                //    var chooses = chooseRepo.Chooses.Where(p => p.order_id.Equals(order.order_id)).ToList();
+                //    foreach (var choose in chooses)
+                //    {
+                //        if (choose.num > 0)
+                //        {
+                //            foreach (var c1 in chosen_dish)
+                //            {
+                //                if (choose.dish_id.Equals(c1["dish_id"].ToString()))
+                //                {
+                //                    c1["dish_num"] = (int)c1["dish_num"]+choose.num;
+                //                }
+                //            }
+                //        }
+                //    }
+
+                //}
+
                 result.Add("chosen_dish", chosen_dish);
                 return result;
             }
-            return null;
+            else
+            {
+                result.Add("order_id", null);
+                result.Add("table_id", null);
+                result.Add("order_date", null);
+                result.Add("expense", 0);
+                result.Add("customer_id", null);
+                return result;
+            }
+            
         }
 
         /// <summary>

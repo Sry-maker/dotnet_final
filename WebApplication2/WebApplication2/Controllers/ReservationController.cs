@@ -57,6 +57,20 @@ namespace WebApplication2.Controllers
         }
 
         /// <summary>
+        /// 返回所有用于预约的餐桌信息
+        /// </summary>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(List<DiningTable>), 200)]
+        [HttpGet]
+        public List<DiningTable> getAllTablesForReservation()
+        {
+            using (var tableRepo = new TableRepository())
+            {
+                return tableRepo.Tables.Where(p=>p.table_id.StartsWith("r")).ToList();
+            }
+        }
+
+        /// <summary>
         /// 获取所有可预约餐桌
         /// </summary>
         /// <param name="customer_id"></param>
