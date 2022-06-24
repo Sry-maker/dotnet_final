@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 using WebApplication2.Repository;
 using WebApplication2.Models;
 using WebApplication2.Utils;
-using WebApplication2.RequestBody;
 
 namespace WebApplication2.Controllers
 {
@@ -245,11 +244,8 @@ namespace WebApplication2.Controllers
         /// 0-id不存在 1-修改成功 2-用户名存在密码错误 3-数据库连接失败
         /// </remarks>
         [HttpPost]
-        public ActionResult<int> setCustomerPwd([FromBody] setCustomerPwdBody body)
+        public ActionResult<int> setCustomerPwd(string customer_id,string new_password,string customer_password)
         {
-            string customer_id = body.customer_id;
-            string new_password = body.new_password;
-            string customer_password = body.customer_password;
             using (var customerRepo = new CustomerRepository())
             {
                 Customer customer = customerRepo.Customers.Find(customer_id);
