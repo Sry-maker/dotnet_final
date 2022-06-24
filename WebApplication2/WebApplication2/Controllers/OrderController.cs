@@ -284,7 +284,7 @@ namespace WebApplication2.Controllers
                 DateTime now = DateTime.Now;
                 foreach (var choose in chooses)
                 {
-                    if (choose.num <= 0) continue;
+                    if (choose.num==null||choose.num <= 0) continue;
                     Choose choose1 = new Choose();
                     choose1.dish_id = choose.dish_id;
                     choose1.order_date = now;
