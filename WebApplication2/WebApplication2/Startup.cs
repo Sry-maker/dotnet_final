@@ -102,9 +102,9 @@ namespace WebApplication2
                     Description = "评价",
                 });
                 // 为 Swagger 设置xml文档注释路径
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
+                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //c.IncludeXmlComments(xmlPath);
             });
             services.AddMvc(x => x.EnableEndpointRouting = false);
         }
