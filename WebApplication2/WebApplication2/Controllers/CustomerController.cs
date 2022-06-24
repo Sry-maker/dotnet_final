@@ -299,7 +299,7 @@ namespace WebApplication2.Controllers
             if (customer == null) return;
             string filename = customer_id + fileUrl.Substring(fileUrl.LastIndexOf("."));
             bool flag = await MinioUtil.uploadPicture("customer", filename, fileUrl);
-            customer.url = "116.62.208.68:9000/customer/" + filename;
+            customer.url = "http://116.62.208.68:9000/customer/" + filename;
             //if(flag) customerRepo.SaveChanges();
         }
 
@@ -320,7 +320,7 @@ namespace WebApplication2.Controllers
 
             BytesToStream(currentDirectory + "/" + filename, base64);
             bool flag = await MinioUtil.uploadPicture("customer", filename, currentDirectory + "/" + filename);
-            customer.url = "116.62.208.68:9000/customer/" + filename;
+            customer.url = "http://116.62.208.68:9000/customer/" + filename;
             if (flag) customerRepo.SaveChanges();
         }
 
