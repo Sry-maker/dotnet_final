@@ -1,0 +1,2 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
+  CppDll.vcxproj -> C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\CppDll.dll

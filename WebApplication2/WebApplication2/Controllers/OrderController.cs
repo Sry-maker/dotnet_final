@@ -210,13 +210,13 @@ namespace WebApplication2.Controllers
             order = orderRepo.Orders.Find(order_id);
 
             if (order != null)
-            {        
+            {
                 Arith arith = new Arith();
                 foreach (var choose in chooseRepo.Chooses.Where(p => p.order_id.Equals(order_id)).ToList())
                 {
                     double dish_price = chooseRepo.Dishes.Find(choose.dish_id).price.Value;
                     int dish_num = choose.num.Value;
-                    double cost = arith.MulCli(dish_price,dish_num);
+                    double cost = arith.MulCli(dish_price, dish_num);
                     sum = arith.AddCli(sum, cost);
                     //double cost = dish_price* dish_num;
                     //sum += cost;

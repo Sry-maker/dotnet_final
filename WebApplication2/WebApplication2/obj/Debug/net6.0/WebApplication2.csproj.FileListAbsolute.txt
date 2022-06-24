@@ -39,3 +39,85 @@ C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debu
 C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\System.Reactive.dll
 C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\System.Reactive.Linq.dll
 C:\Users\Derek\Desktop\.net期末项目\WebApplication2\WebApplication2\bin\Debug\net6.0\CliDll.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\appsettings.json
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.exe
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.deps.json
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.runtimeconfig.json
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.pdb
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Crc32.NET.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Minio.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Minio.AspNetCore.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\System.Reactive.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\System.Reactive.Linq.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\scopedcss\bundle\WebApplication2.styles.css
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\refint\WebApplication2.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.pdb
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\ref\WebApplication2.dll
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\CliDll.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\appsettings.json
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.exe
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.deps.json
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.runtimeconfig.json
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\WebApplication2.pdb
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Crc32.NET.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Minio.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Minio.AspNetCore.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\System.Reactive.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\System.Reactive.Linq.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\bin\Debug\net6.0\CliDll.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\scopedcss\bundle\WebApplication2.styles.css
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\refint\WebApplication2.dll
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.pdb
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\新建文件夹 (3)\dotnet_final\WebApplication2\WebApplication2\obj\Debug\net6.0\ref\WebApplication2.dll

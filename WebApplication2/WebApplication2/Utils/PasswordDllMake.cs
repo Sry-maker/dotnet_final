@@ -13,10 +13,10 @@ namespace WebApplication2.Utils
 {
     public class PasswordDllMake
     {
-        [DllImport("C:\\Users\\Derek\\Desktop\\.net期末项目\\WebApplication2\\WebApplication2\\DllPassword.dll")]
+        [DllImport("Dllpassword.dll")]
         public static extern IntPtr Encryption(string strtest);
 
-        [DllImport("C:\\Users\\Derek\\Desktop\\.net期末项目\\WebApplication2\\WebApplication2\\DllPassword.dll")]
+        [DllImport("Dllpassword.dll")]
         public static extern IntPtr Decryption(string strtest);
     }
 }

@@ -1,0 +1,1 @@
+C:\Users\Lenovo\Desktop\dotnet_final\WebApplication2\CliDll\Debug\CliDll.vcxproj.AssemblyReference.cache
