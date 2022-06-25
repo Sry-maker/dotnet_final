@@ -141,7 +141,8 @@ namespace WebApplication2.Controllers
         /// <summary>
         /// 取消预约
         /// </summary>
-        /// <param name="reservation_id"></param>
+        /// <param name="customer_id"></param>
+        /// <param name="reservation_date"></param>
         /// <returns></returns>
         /// <remarks>
         /// 需传入reservation_id  返回：0-失败 1-删除成功

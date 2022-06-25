@@ -47,42 +47,12 @@ namespace WebApplication2
                     Title = "customer API文档",
                     Description = "顾客",
                 });
-                //c.SwaggerDoc("statement", new OpenApiInfo
-                //{
-                //    Version = "v2",
-                //    Title = "statement API文档",
-                //    Description = "流水",
-                //});
-                //c.SwaggerDoc("vip", new OpenApiInfo
-                //{
-                //    Version = "v2",
-                //    Title = "customer API文档",
-                //    Description = "会员",
-                //});
-                //c.SwaggerDoc("employee", new OpenApiInfo
-                //{
-                //    Version = "v2",
-                //    Title = "employee API文档",
-                //    Description = "员工",
-                //});
-                //c.SwaggerDoc("ingredient", new OpenApiInfo
-                //{
-                //    Version = "v2",
-                //    Title = "ingredient API文档",
-                //    Description = "食材",
-                //});
                 c.SwaggerDoc("DishController", new OpenApiInfo
                 {
                     Version = "v2",
                     Title = "dish API文档",
                     Description = "菜品",
                 });
-                //c.SwaggerDoc("utensil", new OpenApiInfo
-                //{
-                //    Version = "v2",
-                //    Title = "utensil API文档",
-                //    Description = "器具",
-                //});
                 c.SwaggerDoc("TableController", new OpenApiInfo
                 {
                     Version = "v2",
@@ -101,10 +71,6 @@ namespace WebApplication2
                     Title = "evaluation API文档",
                     Description = "评价",
                 });
-                // 为 Swagger 设置xml文档注释路径
-                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                //c.IncludeXmlComments(xmlPath);
             });
             services.AddMvc(x => x.EnableEndpointRouting = false);
         }
@@ -126,13 +92,8 @@ namespace WebApplication2
                 c.SwaggerEndpoint("/swagger/TableController/swagger.json", "dining_table API");
                 c.SwaggerEndpoint("/swagger/DishController/swagger.json", "dish API");
                 c.SwaggerEndpoint("/swagger/OrderController/swagger.json", "dish_order API");
-                //c.SwaggerEndpoint("/swagger/employee/swagger.json", "employee API");
                 c.SwaggerEndpoint("/swagger/EvaluationController/swagger.json", "evaluation API");
-                //c.SwaggerEndpoint("/swagger/ingredient/swagger.json", "ingredient API");
                 c.SwaggerEndpoint("/swagger/ReservationController/swagger.json", "reservation API");
-                //c.SwaggerEndpoint("/swagger/statement/swagger.json", "statement API");
-                //c.SwaggerEndpoint("/swagger/utensil/swagger.json", "utensil API");
-                //c.SwaggerEndpoint("/swagger/vip/swagger.json", "vip API");
                 c.RoutePrefix = string.Empty;//设置根节点访问
             });
 

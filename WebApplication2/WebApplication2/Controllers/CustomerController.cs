@@ -86,7 +86,7 @@ namespace WebApplication2.Controllers
         /// </summary>
         /// <param name="customer_id"></param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(Customer), 200)]
+        //[ProducesResponseType(typeof(Customer), 200)]
         [HttpGet("{customer_id}")]
         public Dictionary<string, object> getCustomerInformation(string customer_id)
         {
@@ -97,13 +97,6 @@ namespace WebApplication2.Controllers
                 result.Add("customer_id", customer.customer_id);
                 result.Add("customer_name", customer.customer_name);
                 result.Add("birthday", customer.birthday.ToString().Replace(" 0:00:00", ""));
-                string pwd = customer.password;
-                IntPtr intPtr = PasswordDllMake.Encryption(pwd);
-                string pwd_1 = Marshal.PtrToStringAnsi(intPtr);
-                IntPtr intPtr1 = PasswordDllMake.Decryption(pwd_1);
-                string pwd_2 = Marshal.PtrToStringAnsi(intPtr1);
-                Console.WriteLine(pwd_2);
-                //result.Add("password", pwd_2);
                 result.Add("phone_num", customer.phone);
                 result.Add("credit", customer.credit);
                 return result;

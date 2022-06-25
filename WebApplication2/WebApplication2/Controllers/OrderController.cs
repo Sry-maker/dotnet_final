@@ -142,9 +142,9 @@ namespace WebApplication2.Controllers
             DishOrder order = null;
             using (var orderRepo = new OrderRepository())
             {
-                order = orderRepo.Orders.Where(p => p.customer_id.Equals(customer_id)&&p.state==0)
-                    .OrderByDescending(p => p.order_id)
-                    .First();
+                List<DishOrder> orderList = orderRepo.Orders.Where(p => p.customer_id.Equals(customer_id) && p.state == 0)
+                    .OrderByDescending(p => p.order_id).ToList();
+                if(orderList.Count>0) order=orderList[0];
             }
             if(order!=null && order.state == 0)
             {
@@ -264,8 +264,6 @@ namespace WebApplication2.Controllers
                     int dish_num = choose.num.Value;
                     double cost = arith.MulCli(dish_price, dish_num);
                     sum = arith.AddCli(sum, cost);
-                    //double cost = dish_price* dish_num;
-                    //sum += cost;
                 }
                 Console.WriteLine($"订单金额已更新，为{sum}元");
             }
